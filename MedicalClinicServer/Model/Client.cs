@@ -21,7 +21,7 @@ namespace MedicalClinicServer.Model
         [MaxLength(50, ErrorMessage = "Surname can only be 50 characters long")]
         public string Surname { get; set; }
         [Required]
-        [MaxLength(50, ErrorMessage = "Name can only be 50 characters long")]
+        [MaxLength(50, ErrorMessage = "Middlename can only be 50 characters long")]
         public string MiddleName { get; set; }
         [Required]
         public string Email { get; set; }
