@@ -33,6 +33,10 @@ namespace MedicalClinicServer
             services.AddControllers();
             services.AddScoped<IDoctor, DoctorData>();
             services.AddScoped<IClient, ClientData>();
+            services.AddScoped<IComment, CommentData>();
+            services.AddScoped<IAnamnes, AnamnesData>();
+            services.AddScoped<IRecord, RecordData>();
+            services.AddScoped<IVisit, VisitData>();
             services.AddDbContextPool<ClinicContext>(option => option.UseSqlServer(Configuration.GetConnectionString("ClinicContextConnectionString")));
             
             services.AddSwaggerGen();
