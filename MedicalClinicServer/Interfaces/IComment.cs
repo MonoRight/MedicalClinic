@@ -9,7 +9,7 @@ namespace MedicalClinicServer.Interfaces
     public interface IComment
     {
         List<Comment> GetComments();
-        Task<Comment> GetCommentAsync(Guid id);
+        Task<Comment> GetCommentAsync(int id);
         Task<Comment> AddCommentAsync(Comment comment);
         Task DeleteCommentAsync(Comment comment);
         Task<Comment> EditCommentAsync(Comment comment);

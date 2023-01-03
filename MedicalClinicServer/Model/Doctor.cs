@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -9,7 +10,7 @@ namespace MedicalClinicServer.Model
     public class Doctor
     {
         [Key]
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         [Required]
         public string Login { get; set; }
         [Required]
@@ -31,7 +32,5 @@ namespace MedicalClinicServer.Model
         public int EndWorkHour { get; set; }
         [Required]
         public string WorkPosition { get; set; }
-        [Required]
-        public List<Comment> Comments { get; set; } = new List<Comment>();
     }
 }

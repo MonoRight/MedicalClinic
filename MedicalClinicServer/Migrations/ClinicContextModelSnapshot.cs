@@ -21,9 +21,10 @@ namespace MedicalClinicServer.Migrations
 
             modelBuilder.Entity("MedicalClinicServer.Model.Anamnes", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("DevelopmentRate")
                         .IsRequired()
@@ -47,9 +48,10 @@ namespace MedicalClinicServer.Migrations
 
             modelBuilder.Entity("MedicalClinicServer.Model.Client", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("BirthDate")
                         .HasColumnType("datetime2");
@@ -92,15 +94,16 @@ namespace MedicalClinicServer.Migrations
 
             modelBuilder.Entity("MedicalClinicServer.Model.Comment", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<Guid>("ClientId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("ClientId")
+                        .HasColumnType("int");
 
-                    b.Property<Guid>("DoctorId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("DoctorId")
+                        .HasColumnType("int");
 
                     b.Property<int>("Mark")
                         .HasColumnType("int");
@@ -120,9 +123,10 @@ namespace MedicalClinicServer.Migrations
 
             modelBuilder.Entity("MedicalClinicServer.Model.Doctor", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("EndWorkHour")
                         .HasColumnType("int");
@@ -168,18 +172,19 @@ namespace MedicalClinicServer.Migrations
 
             modelBuilder.Entity("MedicalClinicServer.Model.Record", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<Guid>("ClientId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("ClientId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("DoctorId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("DoctorId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -192,18 +197,19 @@ namespace MedicalClinicServer.Migrations
 
             modelBuilder.Entity("MedicalClinicServer.Model.Visit", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Analysis")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("AnamnesId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("AnamnesId")
+                        .HasColumnType("int");
 
-                    b.Property<Guid>("ClientId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("ClientId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Complaint")
                         .IsRequired()
@@ -212,8 +218,8 @@ namespace MedicalClinicServer.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("DoctorId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("DoctorId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Illness")
                         .IsRequired()
@@ -244,13 +250,13 @@ namespace MedicalClinicServer.Migrations
             modelBuilder.Entity("MedicalClinicServer.Model.Comment", b =>
                 {
                     b.HasOne("MedicalClinicServer.Model.Client", "Client")
-                        .WithMany("Comments")
+                        .WithMany()
                         .HasForeignKey("ClientId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("MedicalClinicServer.Model.Doctor", "Doctor")
-                        .WithMany("Comments")
+                        .WithMany()
                         .HasForeignKey("DoctorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

@@ -9,7 +9,7 @@ namespace MedicalClinicServer.Model
     public class Visit
     {
         [Key]
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         [Required]
         public DateTime Date { get; set; }
         [Required]
@@ -22,12 +22,15 @@ namespace MedicalClinicServer.Model
         [Required]
         public string Recomendations { get; set; }
         [Required]
+        public int AnamnesId { get; set; }
         public Anamnes Anamnes { get; set; }
         [Required]
         public double Price { get; set; }
         [Required]
+        public int DoctorId { get; set; }
         public Doctor Doctor { get; set; }
         [Required]
+        public int ClientId { get; set; }
         public Client Client { get; set; }
     }
 }

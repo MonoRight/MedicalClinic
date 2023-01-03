@@ -18,7 +18,7 @@ namespace MedicalClinicServer.DataRequests
 
         public async Task<Anamnes> AddAnamnesAsync(Anamnes anamnes)
         {
-            anamnes.Id = Guid.NewGuid();
+            //anamnes.Id = Guid.NewGuid();
             await _clinicContext.Anamneses.AddAsync(anamnes);
             await _clinicContext.SaveChangesAsync();
             return anamnes;
@@ -47,7 +47,7 @@ namespace MedicalClinicServer.DataRequests
             return anamnes;
         }
 
-        public async Task<Anamnes> GetAnamnesAsync(Guid id)
+        public async Task<Anamnes> GetAnamnesAsync(int id)
         {
             var anamnes = await _clinicContext.Anamneses.FindAsync(id);
             return anamnes;

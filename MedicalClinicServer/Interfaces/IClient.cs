@@ -9,7 +9,7 @@ namespace MedicalClinicServer.Interfaces
     public interface IClient
     {
         List<Client> GetClients();
-        Task<Client> GetClientAsync(Guid id);
+        Task<Client> GetClientAsync(int id);
         Task<Client> AddClientAsync(Client client);
         Task DeleteClientAsync(Client client);
         Task<Client> EditClientAsync(Client client);

@@ -9,7 +9,7 @@ namespace MedicalClinicServer.Interfaces
     public interface IVisit
     {
         List<Visit> GetVisits();
-        Task<Visit> GetVisitAsync(Guid id);
+        Task<Visit> GetVisitAsync(int id);
         Task<Visit> AddVisitAsync(Visit visit);
         Task DeleteVisitAsync(Visit visit);
         Task<Visit> EditVisitAsync(Visit visit);

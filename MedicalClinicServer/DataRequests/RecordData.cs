@@ -18,7 +18,7 @@ namespace MedicalClinicServer.DataRequests
 
         public async Task<Record> AddRecordAsync(Record record)
         {
-            record.Id = Guid.NewGuid();
+            //record.Id = Guid.NewGuid();
             await _clinicContext.Records.AddAsync(record);
             await _clinicContext.SaveChangesAsync();
             return record;
@@ -36,9 +36,9 @@ namespace MedicalClinicServer.DataRequests
 
             if (existingRecord != null)
             {
-                existingRecord.Client = record.Client;
+                existingRecord.ClientId = record.ClientId;
                 existingRecord.Date = record.Date;
-                existingRecord.Doctor = record.Doctor;
+                existingRecord.DoctorId = record.DoctorId;
 
                 _clinicContext.Records.Update(existingRecord);
                 await _clinicContext.SaveChangesAsync();
@@ -46,7 +46,7 @@ namespace MedicalClinicServer.DataRequests
             return record;
         }
 
-        public async Task<Record> GetRecordAsync(Guid id)
+        public async Task<Record> GetRecordAsync(int id)
         {
             var record = await _clinicContext.Records.FindAsync(id);
             return record;

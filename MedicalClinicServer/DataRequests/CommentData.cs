@@ -19,7 +19,7 @@ namespace MedicalClinicServer.DataRequests
 
         public async Task<Comment> AddCommentAsync(Comment comment)
         {
-            comment.Id = Guid.NewGuid();
+            //comment.Id = Guid.NewGuid();
             await _clinicContext.Comments.AddAsync(comment);
             await _clinicContext.SaveChangesAsync();
             return comment;
@@ -37,8 +37,8 @@ namespace MedicalClinicServer.DataRequests
 
             if (existingComment != null)
             {
-                existingComment.Client = comment.Client;
-                existingComment.Doctor = comment.Doctor;
+                existingComment.ClientId = comment.ClientId;
+                existingComment.DoctorId = comment.DoctorId;
                 existingComment.Mark = comment.Mark;
                 existingComment.Text = comment.Text;
 
@@ -48,7 +48,7 @@ namespace MedicalClinicServer.DataRequests
             return comment;
         }
 
-        public async Task<Comment> GetCommentAsync(Guid id)
+        public async Task<Comment> GetCommentAsync(int id)
         {
             var comment = await _clinicContext.Comments.FindAsync(id);
             return comment;

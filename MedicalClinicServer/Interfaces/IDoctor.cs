@@ -9,7 +9,7 @@ namespace MedicalClinicServer.Interfaces
     public interface IDoctor
     {
         List<Doctor> GetDoctors();
-        Task<Doctor> GetDoctorAsync(Guid id);
+        Task<Doctor> GetDoctorAsync(int id);
         Task<Doctor> AddDoctorAsync(Doctor doctor);
         Task DeleteDoctorAsync(Doctor doctor);
         Task<Doctor> EditDoctorAsync(Doctor doctor);

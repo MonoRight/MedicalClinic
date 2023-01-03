@@ -18,7 +18,7 @@ namespace MedicalClinicServer.DataRequests
 
         public async Task<Doctor> AddDoctorAsync(Doctor doctor)
         {
-            doctor.Id = Guid.NewGuid();
+            //doctor.Id = Guid.NewGuid();
             await _clinicContext.Doctors.AddAsync(doctor);
             await _clinicContext.SaveChangesAsync();
             return doctor;
@@ -57,7 +57,7 @@ namespace MedicalClinicServer.DataRequests
             return _clinicContext.Doctors.ToList();
         }
 
-        public async Task<Doctor> GetDoctorAsync(Guid id)
+        public async Task<Doctor> GetDoctorAsync(int id)
         {
             var doctor = await _clinicContext.Doctors.FindAsync(id);
             return doctor;

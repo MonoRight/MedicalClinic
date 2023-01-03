@@ -9,7 +9,7 @@ namespace MedicalClinicServer.Model
     public class Anamnes
     {
         [Key]
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         [Required]
         public string Localisation { get; set; }
         [Required]

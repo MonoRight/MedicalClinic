@@ -18,7 +18,7 @@ namespace MedicalClinicServer.DataRequests
 
         public async Task<Visit> AddVisitAsync(Visit visit)
         {
-            visit.Id = Guid.NewGuid();
+            //visit.Id = Guid.NewGuid();
             await _clinicContext.Visits.AddAsync(visit);
             await _clinicContext.SaveChangesAsync();
             return visit;
@@ -37,11 +37,11 @@ namespace MedicalClinicServer.DataRequests
             if (existingVisit != null)
             {
                 existingVisit.Analysis = visit.Analysis;
-                existingVisit.Anamnes = visit.Anamnes;
-                existingVisit.Client = visit.Client;
+                existingVisit.AnamnesId = visit.AnamnesId;
+                existingVisit.ClientId = visit.ClientId;
                 existingVisit.Complaint = visit.Complaint;
                 existingVisit.Date = visit.Date;
-                existingVisit.Doctor = visit.Doctor;
+                existingVisit.DoctorId = visit.DoctorId;
                 existingVisit.Illness = visit.Illness;
                 existingVisit.Medicines = visit.Medicines;
                 existingVisit.Price = visit.Price;
@@ -53,14 +53,15 @@ namespace MedicalClinicServer.DataRequests
             return visit;
         }
 
-        public Task<Visit> GetVisitAsync(Guid id)
+        public async Task<Visit> GetVisitAsync(int id)
         {
-            throw new NotImplementedException();
+            var visit = await _clinicContext.Visits.FindAsync(id);
+            return visit;
         }
 
         public List<Visit> GetVisits()
         {
-            throw new NotImplementedException();
+            return _clinicContext.Visits.ToList();
         }
     }
 }

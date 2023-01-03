@@ -28,7 +28,7 @@ namespace MedicalClinicServer.Controllers
 
         [HttpGet]
         [Route("api/[controller]/{id}")]
-        public async Task<IActionResult> GetClientAsync(Guid id)
+        public async Task<IActionResult> GetClientAsync(int id)
         {
             var client = await _clientData.GetClientAsync(id);
 
@@ -48,13 +48,19 @@ namespace MedicalClinicServer.Controllers
             {
                 return BadRequest();
             }
+
+            if (_clientData.GetClients().Where(x => x.Login == client.Login).Count() > 0)
+            {
+                return Forbid();
+            }
+            
             await _clientData.AddClientAsync(client);
             return Created(HttpContext.Request.Scheme = "://" + HttpContext.Request.Host + HttpContext.Request.Path + "/" + client.Id, client);
         }
 
         [HttpDelete]
         [Route("api/[controller]/{id}")]
-        public async Task<IActionResult> DeleteClientAsync(Guid id)
+        public async Task<IActionResult> DeleteClientAsync(int id)
         {
             var client = await _clientData.GetClientAsync(id);
 
@@ -69,7 +75,7 @@ namespace MedicalClinicServer.Controllers
 
         [HttpPatch]
         [Route("api/[controller]/{id}")]
-        public async Task<IActionResult> EditEmployeeAsync(Guid id, Client client)
+        public async Task<IActionResult> EditEmployeeAsync(int id, Client client)
         {
             var existingClient = await _clientData.GetClientAsync(id);
 

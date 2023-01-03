@@ -9,7 +9,7 @@ namespace MedicalClinicServer.Model
     public class Client
     {
         [Key]
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         [Required]
         public string Login { get; set; }
         [Required]
@@ -29,7 +29,5 @@ namespace MedicalClinicServer.Model
         public string TelephoneNumber { get; set; }
         [Required]
         public DateTime BirthDate { get; set; }
-        [Required]
-        public List<Comment> Comments { get; set; } = new List<Comment>();
     }
 }
