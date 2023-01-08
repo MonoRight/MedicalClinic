@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace MedicalClinicEmployeeClient.Model
+﻿namespace MedicalClinicEmployeeClient.Model
 {
     public class Comment
     {

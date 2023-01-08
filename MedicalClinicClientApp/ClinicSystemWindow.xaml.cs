@@ -241,22 +241,12 @@ namespace MedicalClinicClientApp
             addCommentWindow.Show();
         }
 
-        /// <summary>
-        /// ADDDDDDD
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void ButtonDeleteComment_Click(object sender, RoutedEventArgs e)
         {
             DeleteCommentWindow deleteCommentWindow = new DeleteCommentWindow();
             deleteCommentWindow.Show();
         }
 
-        /// <summary>
-        /// ADDDDDDD
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private async void ButtonShowComments_Click(object sender, RoutedEventArgs e)
         {
             commentTextBlock.Text = string.Empty;
@@ -284,12 +274,6 @@ namespace MedicalClinicClientApp
             commentTextBlock.Text = text;
         }
 
-
-        /// <summary>
-        /// ADDDDDDDDDD
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void ButtonDeleteRecord_Click(object sender, RoutedEventArgs e)
         {
             DeleteRecordWindow deleteRecordWindow = new DeleteRecordWindow();

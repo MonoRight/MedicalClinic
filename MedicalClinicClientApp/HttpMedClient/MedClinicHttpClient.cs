@@ -80,11 +80,6 @@ namespace MedicalClinicClientApp.HttpMedClient
             return anamneses;
         }
 
-
-        /// <summary>
-        /// ADDDDDDD
-        /// </summary>
-        /// <returns></returns>
         public static async Task<List<Comment>> GetComments()
         {
             List<Comment> comments = null;
@@ -142,12 +137,6 @@ namespace MedicalClinicClientApp.HttpMedClient
             }
         }
 
-
-        /// <summary>
-        /// ADDDDDD
-        /// </summary>
-        /// <param name="comment"></param>
-        /// <returns></returns>
         public static async Task AddComment(Comment comment)
         {
             try
@@ -172,11 +161,6 @@ namespace MedicalClinicClientApp.HttpMedClient
             }
         }
 
-        /// <summary>
-        /// ADD
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
         public static async Task DeleteComment(Comment comment)
         {
             HttpResponseMessage responseMessage = await HttpClient.DeleteAsync(URL + $"Comments/{comment.Id}");
@@ -191,11 +175,6 @@ namespace MedicalClinicClientApp.HttpMedClient
             }
         }
 
-        /// <summary>
-        /// ADDD
-        /// </summary>
-        /// <param name="record"></param>
-        /// <returns></returns>
         public static async Task DeleteRecord(Record record)
         {
             HttpResponseMessage responseMessage = await HttpClient.DeleteAsync(URL + $"Records/{record.Id}");
