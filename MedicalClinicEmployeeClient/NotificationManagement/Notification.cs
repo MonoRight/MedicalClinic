@@ -1,7 +1,7 @@
 ﻿using Notifications.Wpf;
 using System;
 
-namespace MedicalClinicClientApp.NotificationManagement
+namespace MedicalClinicEmployeeClient.NotificationManagement
 {
     public static class Notification
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MedicalClinicClientApp.Model
+namespace MedicalClinicEmployeeClient.Model
 {
     public class Visit
     {

@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace MedicalClinicClientApp.Model
+﻿namespace MedicalClinicEmployeeClient.Model
 {
-    public class Client
+    public class Doctor
     {
         public int Id { get; set; }
         public string Login { get; set; }
@@ -10,8 +8,9 @@ namespace MedicalClinicClientApp.Model
         public string Name { get; set; }
         public string Surname { get; set; }
         public string MiddleName { get; set; }
-        public string Email { get; set; }
-        public string TelephoneNumber { get; set; }
-        public DateTime BirthDate { get; set; }
+        public string WorkDays { get; set; }
+        public int StartWorkHour { get; set; }
+        public int EndWorkHour { get; set; }
+        public string WorkPosition { get; set; }
     }
 }

@@ -1,0 +1,46 @@
+﻿<Window x:Class="MedicalClinicEmployeeClient.AddVisitWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:local="clr-namespace:MedicalClinicEmployeeClient"
+        mc:Ignorable="d"
+        Title="AddVisitWindow"  Height="650" Width="400"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        AllowsTransparency="True"
+        MouseDown="Window_MouseDown">
+
+
+    <Border Background="#272537"
+            CornerRadius="20">
+        <Grid>
+            <iconPacks:PackIconBootstrapIcons Kind="DashCircle"
+                                                      Style="{StaticResource ManageIconsThemeBootstrapIcons}"
+                                                      MouseDown="PackIconBootstrapIcons_MouseDown" Margin="324,9,0,0"
+                                                      />
+            <iconPacks:PackIconEntypo Kind="CircleWithCross"
+                                                      Style="{StaticResource ManageIconsThemeEntypo}"
+                                                      MouseDown="PackIconEntypo_MouseDown" Margin="350,9,0,0"/>
+            <Label Content="Оформлення візиту" Style="{StaticResource LabelTheme}" Margin="83,70,0,0" VerticalAlignment="Top" FontSize="23" Foreground="AliceBlue" Height="48" Width="251"/>
+            <TextBox Name="clientNameInput" Text="Ім'я клієнта" Style="{StaticResource TextBoxTheme}" TextAlignment="Center" HorizontalAlignment="Center" Margin="0,123,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220" Height="30"/>
+            <TextBox Name="clientSurnameInput" Text="Прізвище клієнта" Style="{StaticResource TextBoxTheme}" TextAlignment="Center" HorizontalAlignment="Center" Margin="0,158,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220" Height="30"/>
+            <TextBox Name="illnessInput" Text="Захворювання" Style="{StaticResource TextBoxTheme}" TextAlignment="Center" HorizontalAlignment="Center" Margin="0,193,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220" Height="30"/>
+            <TextBox Name="complaintsInput" Text="Скраги" Style="{StaticResource TextBoxTheme}" TextAlignment="Center" HorizontalAlignment="Center" Margin="0,228,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220" Height="30"/>
+            <TextBox Name="analysisInput" Text="Аналізи" Style="{StaticResource TextBoxTheme}" TextAlignment="Center" HorizontalAlignment="Center" Margin="0,263,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220" Height="30"/>
+            <TextBox Name="medecinesInput" Text="Ліки" Style="{StaticResource TextBoxTheme}" TextAlignment="Center" HorizontalAlignment="Center" Margin="0,298,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220" Height="30"/>
+            <TextBox Name="recomendationsInput" Text="Рекомендації" Style="{StaticResource TextBoxTheme}" TextAlignment="Center" HorizontalAlignment="Center" Margin="0,333,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220" Height="30"/>
+            <TextBox Name="priceInput" Text="Ціна" Style="{StaticResource TextBoxTheme}" TextAlignment="Center" HorizontalAlignment="Center" Margin="0,368,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220" Height="30"/>
+            <Label Content="Анамнез" Style="{StaticResource LabelTheme}" Foreground="AliceBlue" FontSize="20" HorizontalAlignment="Center" Margin="0,403,0,0" VerticalAlignment="Top" Height="36" Width="100"/>
+            <TextBox Name="localisationInput" Text="Локалізація" Style="{StaticResource TextBoxTheme}" TextAlignment="Center" HorizontalAlignment="Center" Margin="0,439,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220" Height="30"/>
+            <TextBox Name="startDateInput" Text="Дата початку (yyyy-MM-dd)" Style="{StaticResource TextBoxTheme}" TextAlignment="Center" HorizontalAlignment="Center" Margin="0,474,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220" Height="30"/>
+            <TextBox Name="developementRateInput" Text="Стадія розвитку" Style="{StaticResource TextBoxTheme}" TextAlignment="Center" HorizontalAlignment="Center" Margin="0,509,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220" Height="30"/>
+            <TextBox Name="painRateInput" Text="Рівень болю" Style="{StaticResource TextBoxTheme}" TextAlignment="Center" HorizontalAlignment="Center" Margin="0,544,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220" Height="30"/>
+            <Button Style="{StaticResource OrangeButton}" Content="Оформити візит" HorizontalAlignment="Center" Margin="0,589,0,0" VerticalAlignment="Top" Height="40" Width="220" Click="ButtonAddVisit_Click"/>
+
+        </Grid>
+    </Border>
+</Window>

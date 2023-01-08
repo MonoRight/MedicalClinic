@@ -61,11 +61,11 @@ namespace MedicalClinicClientApp
                 var commentForDoctor = comments.Where(x => x.DoctorId == doctor.Id);
                 if (commentForDoctor.Count() > 0)
                 {
+                    text += "============Відгуки============\n";
                     foreach (var comment in commentForDoctor)
                     {
-                        text += $"============Відгуки============\n      Відгук: {comment.Text}\n      Оцінка: {comment.Mark}";
+                        text += $"      Відгук: {comment.Text}\n      Оцінка: {comment.Mark}\n\n";
                     }
-                    text += "\n";
                 }
 
                 text += "\n\n";
