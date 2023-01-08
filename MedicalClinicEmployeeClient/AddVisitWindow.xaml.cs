@@ -27,7 +27,7 @@ namespace MedicalClinicEmployeeClient
 
         private void PackIconEntypo_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            Application.Current.Shutdown();
+            this.Close();
         }
 
         private void PackIconBootstrapIcons_MouseDown(object sender, MouseButtonEventArgs e)
