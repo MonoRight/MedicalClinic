@@ -132,11 +132,17 @@
                 <StackPanel Grid.Column="1" 
                             Orientation="Horizontal"
                             HorizontalAlignment="Right">
+                    <iconPacks:PackIconBootstrapIcons Kind="Arrow90degDown"
+                                                      VerticalAlignment="Center"
+                                                      Style="{StaticResource ManageIconsThemeBootstrapIcons}"
+                                                      MouseDown="PackIconBootstrapIconsLogout_MouseDown"
+                                                      />
                     <iconPacks:PackIconBootstrapIcons Kind="DashCircle"
                                                       VerticalAlignment="Center"
                                                       Style="{StaticResource ManageIconsThemeBootstrapIcons}"
                                                       MouseDown="PackIconBootstrapIcons_MouseDown"
                                                       />
+                    
                     <iconPacks:PackIconEntypo Kind="CircleWithCross"                                   
                                                       VerticalAlignment="Center"
                                                       Style="{StaticResource ManageIconsThemeEntypo}"
@@ -197,8 +203,12 @@
                                     <StackPanel Orientation="Vertical">
                                         <Button Content="Вивести всіх працівників" Style="{StaticResource OrangeButton}" Height="87" Click="ButtonGetDoctros_Click"/>
                                         <Expander DockPanel.Dock="Bottom" Header="Список:">
-                                            <ScrollViewer HorizontalScrollBarVisibility="Auto" Height="403">
-                                                <TextBlock Name="doctorsTextBlock" Text=""  TextWrapping="Wrap" Height="410" Foreground="Black" Width="688"/>
+                                            <ScrollViewer HorizontalScrollBarVisibility="Auto" Height="403" CanContentScroll="True">
+                                                <TextBlock Name="doctorsTextBlock" 
+                                                           Text=""  TextWrapping="Wrap" 
+                                                           Height="Auto" 
+                                                           Foreground="Black" 
+                                                           Width="Auto"/>
                                             </ScrollViewer>
                                         </Expander>
                                     </StackPanel>
@@ -219,8 +229,111 @@
                                     <Label Content="Дата та час:" Style="{StaticResource LabelTheme}" Margin="132,224,0,0" VerticalAlignment="Top"/>
                                     <TextBox Style="{StaticResource TextBoxTheme}" Text="yyyy-MM-dd HH:mm" x:Name="recordDateInput"  TextAlignment="Center" Margin="293,219,126,264"/>
 
-                                    <Button Style="{StaticResource OrangeButton}" Content="Записатися" Margin="198,299,198,158" Click="ButtonCreateVisit_Click"/>
+                                    <Button Style="{StaticResource OrangeButton}" Content="Записатися" Margin="198,299,198,158" Click="ButtonCreateRecord_Click"/>
                                     <Label Style="{StaticResource LabelTheme}" Content="Запис на прийом до лікаря" FontSize="22" Margin="0,49,0,0" VerticalAlignment="Top" Height="49" Width="322" HorizontalAlignment="Center"/>
+                                </Grid>
+                            </Border>
+                        </Grid>
+                    </TabItem>
+
+                    <TabItem Header="Мої записи"
+                        Style="{StaticResource TabItemTheme}">
+
+                        <Grid>
+                            <Border Style="{StaticResource TabControlMainBorderTheme}">
+                                <Grid Background="Transparent">
+                                    <StackPanel Orientation="Vertical">
+                                        <StackPanel Height="87">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="356"/>
+                                                    <ColumnDefinition Width="356"/>
+                                                </Grid.ColumnDefinitions>
+                                                <Button Content="Вивести всі мої записи" Style="{StaticResource OrangeButton}" Height="87" Click="ButtonGetRecords_Click"/>
+                                                <Button Grid.Column="1" Content="Видалити запис" Style="{StaticResource OrangeButton}" Height="87" Click="ButtonDeleteRecord_Click"/>
+                                            </Grid>
+                                        </StackPanel>
+                                        
+                                        
+                                        <Expander DockPanel.Dock="Bottom" Header="Список:">
+                                            <ScrollViewer HorizontalScrollBarVisibility="Auto" Height="403" CanContentScroll="True">
+                                                <TextBlock Name="recordsTextBlock" 
+                                                           Text=""  
+                                                           TextWrapping="Wrap" 
+                                                           Height="Auto" 
+                                                           Foreground="Black" 
+                                                           Width="Auto"/>
+                                            </ScrollViewer>
+                                        </Expander>
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+                        </Grid>
+                    </TabItem>
+
+                    <TabItem Header="Історія відвідувань"
+                        Style="{StaticResource TabItemTheme}">
+
+                        <Grid>
+                            <Border Style="{StaticResource TabControlMainBorderTheme}">
+                                <Grid Background="Transparent">
+                                    <StackPanel Orientation="Vertical">
+                                        <StackPanel Height="87">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="356"/>
+                                                    <ColumnDefinition Width="356"/>
+                                                </Grid.ColumnDefinitions>
+                                                <Button Content="Вивести історію відвідувань" Style="{StaticResource OrangeButton}" Height="82" Click="ButtonGetVisits_Click"/>
+                                                <Button Grid.Column="1" Content="Залишити відгук" Style="{StaticResource OrangeButton}" Height="82" Click="ButtonAddComment_Click"/>
+                                            </Grid>
+                                        </StackPanel>
+                                        
+                                        <Expander DockPanel.Dock="Bottom" Header="Список:">
+                                            <ScrollViewer HorizontalScrollBarVisibility="Auto" Height="403">
+                                                <TextBlock Name="visitTextBlock" Text=""  
+                                                           TextWrapping="Wrap" 
+                                                           Height="Auto" 
+                                                           Foreground="Black" 
+                                                           Width="Auto"/>
+                                            </ScrollViewer>
+                                        </Expander>
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+                        </Grid>
+                    </TabItem>
+
+                    <TabItem Header="Мої відгуки"
+                        Style="{StaticResource TabItemTheme}">
+
+                        <Grid>
+                            <Border Style="{StaticResource TabControlMainBorderTheme}">
+                                <Grid Background="Transparent">
+                                    <StackPanel Orientation="Vertical">
+                                        <StackPanel Height="87">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="356"/>
+                                                    <ColumnDefinition Width="356"/>
+                                                </Grid.ColumnDefinitions>
+                                                <Button Content="Переглянути відгуки" Style="{StaticResource OrangeButton}" Height="82" Click="ButtonShowComments_Click"/>
+                                                <Button Grid.Column="1" Content="Видалити відгук" Style="{StaticResource OrangeButton}" Height="82" Click="ButtonDeleteComment_Click"/>
+                                            </Grid>
+                                        </StackPanel>
+                                        
+                                        <Expander DockPanel.Dock="Bottom" Header="Список:">
+                                            <ScrollViewer HorizontalScrollBarVisibility="Auto" Height="403" CanContentScroll="True">
+                                                <TextBlock Name="commentTextBlock" 
+                                                           Text=""  
+                                                           TextWrapping="Wrap" 
+                                                           Height="Auto" 
+                                                           Foreground="Black" 
+                                                           Width="Auto"/>
+                                            </ScrollViewer>
+                                        </Expander>
+                                        
+                                    </StackPanel>
                                 </Grid>
                             </Border>
                         </Grid>

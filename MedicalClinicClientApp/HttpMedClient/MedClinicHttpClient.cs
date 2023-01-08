@@ -53,6 +53,47 @@ namespace MedicalClinicClientApp.HttpMedClient
             return clients;
         }
 
+        public static async Task<List<Record>> GetRecords()
+        {
+            List<Record> records = null;
+
+            records = await HttpClient.GetFromJsonAsync<List<Record>>(URL + "Records");
+
+            return records;
+        }
+
+        public static async Task<List<Visit>> GetVisits()
+        {
+            List<Visit> visits = null;
+
+            visits = await HttpClient.GetFromJsonAsync<List<Visit>>(URL + "Visits");
+
+            return visits;
+        }
+
+        public static async Task<List<Anamnes>> GetAnamneses()
+        {
+            List<Anamnes> anamneses = null;
+
+            anamneses = await HttpClient.GetFromJsonAsync<List<Anamnes>>(URL + "Anamneses");
+
+            return anamneses;
+        }
+
+
+        /// <summary>
+        /// ADDDDDDD
+        /// </summary>
+        /// <returns></returns>
+        public static async Task<List<Comment>> GetComments()
+        {
+            List<Comment> comments = null;
+
+            comments = await HttpClient.GetFromJsonAsync<List<Comment>>(URL + "Comments");
+
+            return comments;
+        }
+
         public static async Task AddClient(Client client)
         {
             try
@@ -98,6 +139,74 @@ namespace MedicalClinicClientApp.HttpMedClient
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+
+        /// <summary>
+        /// ADDDDDD
+        /// </summary>
+        /// <param name="comment"></param>
+        /// <returns></returns>
+        public static async Task AddComment(Comment comment)
+        {
+            try
+            {
+                HttpResponseMessage response = await HttpClient.PostAsJsonAsync(URL + "Comments", comment);
+
+                Comment? newComment = await response.Content.ReadFromJsonAsync<Comment>();
+
+
+                if (response.IsSuccessStatusCode)
+                {
+                    Notification.Show("Відгук додано до системи", "Ваш відгук оброблено і додано до системи", Notifications.Wpf.NotificationType.Success, 0, 0, 10);
+                }
+                else
+                {
+                    Notification.Show("Відгук відхилено", "Ваш відгук не додано до системи", Notifications.Wpf.NotificationType.Error, 0, 0, 10);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// ADD
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public static async Task DeleteComment(Comment comment)
+        {
+            HttpResponseMessage responseMessage = await HttpClient.DeleteAsync(URL + $"Comments/{comment.Id}");
+
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                Notification.Show("Відгук було видалено", "Ваш відгук було видалено з системи", Notifications.Wpf.NotificationType.Success, 0, 0, 10);
+            }
+            else
+            {
+                Notification.Show("Видалення відгуку відхилено", "Ваш відгук не видалено з системи", Notifications.Wpf.NotificationType.Error, 0, 0, 10);
+            }
+        }
+
+        /// <summary>
+        /// ADDD
+        /// </summary>
+        /// <param name="record"></param>
+        /// <returns></returns>
+        public static async Task DeleteRecord(Record record)
+        {
+            HttpResponseMessage responseMessage = await HttpClient.DeleteAsync(URL + $"Records/{record.Id}");
+
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                Notification.Show("Запис було видалено", "Ваш запис було видалено з системи", Notifications.Wpf.NotificationType.Success, 0, 0, 10);
+            }
+            else
+            {
+                Notification.Show("Видалення запису відхилено", "Ваш запис не видалено з системи", Notifications.Wpf.NotificationType.Error, 0, 0, 10);
             }
         }
     }

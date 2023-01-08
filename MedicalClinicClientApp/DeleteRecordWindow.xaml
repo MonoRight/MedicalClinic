@@ -1,0 +1,33 @@
+﻿<Window x:Class="MedicalClinicClientApp.DeleteRecordWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MedicalClinicClientApp"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        mc:Ignorable="d"
+        Title="DeleteRecordWindow" Height="250" Width="400"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        AllowsTransparency="True"
+        MouseDown="Window_MouseDown"
+        WindowStartupLocation="CenterScreen">
+
+    <Border Background="#272537"
+            CornerRadius="20">
+        <Grid>
+            <iconPacks:PackIconBootstrapIcons Kind="DashCircle"
+                                                      Style="{StaticResource ManageIconsThemeBootstrapIcons}"
+                                                      MouseDown="PackIconBootstrapIcons_MouseDown" Margin="344,10,0,0"
+                                                      />
+            <iconPacks:PackIconEntypo Kind="CircleWithCross"
+                                                      Style="{StaticResource ManageIconsThemeEntypo}"
+                                                      MouseDown="PackIconEntypo_MouseDown" Margin="370,10,0,0"/>
+            <Label Style="{StaticResource LabelTheme}" Content="Видалити запис" Margin="0,51,0,0" VerticalAlignment="Top" FontSize="23" Foreground="AliceBlue" Height="42" Width="206" HorizontalAlignment="Center"/>
+            <Label Style="{StaticResource LabelTheme}" Content="Номер запису: " Margin="75,112,0,0" VerticalAlignment="Top" FontSize="15" Foreground="AliceBlue" Height="42" Width="132"/>
+            <TextBox Style="{StaticResource TextBoxTheme}" Name="deleteInput" HorizontalAlignment="Left" Margin="200,116,0,0" Text="" TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+            <Button Style="{StaticResource OrangeButton}" Content="Видалити" HorizontalAlignment="Center" Margin="0,168,0,0" VerticalAlignment="Top" Height="39" Width="158" Click="ButtonDeleteRecord_Click"/>
+        </Grid>
+    </Border>
+</Window>
